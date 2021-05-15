@@ -12,3 +12,6 @@ class Teacher:
     @property
     def amount_topics(self):
         return len(self.topics)
+
+class Director:
+    pass
