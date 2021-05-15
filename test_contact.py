@@ -1,18 +1,22 @@
 from contact import Contact
 import pytest
 
+
 @pytest.fixture()
 def valid_name():
     return 'Connect'\
 
 @pytest.fixture()
 def valid_phone():
-    return ''
+    return '+0 56569999'
 
 @pytest.fixture()
 def valid_mob():
-    return ''
+    return '+0 5656 1111'
 
+@pytest.fixture()
+def invalid_email():
+    return 'sda.com'
 
 class TestCreateContact:
     # def test_create_contact_with_args(self,valid_name,valid_phone,valid_mob):
@@ -32,16 +36,19 @@ class TestCreateContact:
     #     assert contact.mob == mob
 
     def test_without_any_number(self):
-        name = ''
 
 
         with pytest.raises(ValueError):
-            contact = Contact(name)
+            contact = Contact(valid_name)
 
-    @pytest.mark.skip(reason = 'Not implemented')
-    def test_with_invalid_countrycode(self):
-        pass
+    # @pytest.mark.skip(reason = 'Not implemented')
+    def test_with_invalid_country_code(self,valid_name, valid_phone):
 
-    @pytest.mark.skip(reason='Not implemented')
-    def test_with_invalid_email(self):
-        pass
+        with pytest.raises(ValueError):
+            contact = Contact(valid_name, home_phone=valid_phone)
+
+    # @pytest.mark.skip(reason='Not implemented')
+    def test_with_invalid_email(self,valid_name,invalid_email):
+        contact = Contact(valid_name, home_phone= '+372 5656 999',email = invalid_email)
+
+        assert contact.email == ''
