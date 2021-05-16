@@ -42,7 +42,6 @@ class TestCreateTeacher:
 
     def test_teacher_instantianing_sucess(self,valid_person_name):
         # input
-        name = 'Yoko'
         years_exp = 5
 
         # process
@@ -50,6 +49,6 @@ class TestCreateTeacher:
 
         # assert
         assert isinstance(teacher,Teacher)
-        assert teacher.name == 'Yoko'
+        assert teacher.name == 'james'
         assert teacher.years_exp == 5
 
