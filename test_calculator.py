@@ -26,7 +26,7 @@ def test_sum_two_numbers_success():
     result = calc.calculate(value1,value2,operator)
 
     # assert (Check if True/False, raises exception when False and Passes when True)
-    assert result == 5
+    assert result is 5
 
 def test_divide_by_zero():
     # input
@@ -40,14 +40,3 @@ def test_divide_by_zero():
     with pytest.raises(ZeroDivisionError):
         calc.calculate(a,b,operator)
 
-def test_multiplitacation_twp_numbers_success():
-    # input
-    a=4
-    b=2
-    operator = '*'
-
-    # process
-    result = calc.calculate(a,b,operator)
-
-    # assert
-    assert result == 8
