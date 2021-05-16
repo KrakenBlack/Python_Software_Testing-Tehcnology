@@ -40,3 +40,11 @@ def test_divide_by_zero():
     with pytest.raises(ZeroDivisionError):
         calc.calculate(a,b,operator)
 
+def test_subtracting_two_numbers_success():
+    a = 30
+    b= 20
+    operator = '-'
+
+    result = calc.calculate(a,b,operator)
+
+    assert result == 10
